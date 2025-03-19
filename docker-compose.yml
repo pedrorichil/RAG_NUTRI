@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  faq-irpf:
+    build:
+      context: .
+      args:
+        GIT_USER: pbrito
+        GIT_PASSWORD: Bianeves189.
+    container_name: faq-irpf
+    restart: always
+    ports:
+      - "8502:8501"
+    environment:
+      - CHAT_HISTORY_PATH=/app/data/chat_history.json
+    volumes:
+      - ./data:/app/data
+      - ./sessions:/app/sessions
