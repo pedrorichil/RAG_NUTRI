@@ -16,7 +16,7 @@ ARG GIT_USER
 ARG GIT_PASSWORD
 
 # Clone do repositório com autenticação
-RUN git clone http://pbrito:Bianeves189.@192.168.22.29:3003/pbrito/FAQ-IRPF-Krypton.git .
+RUN git clone https://github.com/pedrorichil/RAG_NUTRI.git .
 
 # Instalação de dependências Python
 RUN pip install --no-cache-dir -r requirements.txt
