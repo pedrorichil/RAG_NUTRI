@@ -11,9 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Argumentos para autenticação Git
-ARG GIT_USER
-ARG GIT_PASSWORD
 
 # Clone do repositório com autenticação
 RUN git clone https://github.com/pedrorichil/RAG_NUTRI.git .
