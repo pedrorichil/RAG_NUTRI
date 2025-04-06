@@ -78,7 +78,7 @@ if user_input:
 
     # Envia a requisição para a API
     response = rq.post(
-        "http://localhost/api/v1/run/bf149992-3e8c-4e95-b469-d3288bc0e4eb?stream=false",
+        "https://langflow.quickfix-dev-pbrito.shop/api/v1/run/bf149992-3e8c-4e95-b469-d3288bc0e4eb?stream=false",
         json={
             "input_value": formatted_input,
             "output_type": "chat",
