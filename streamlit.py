@@ -78,7 +78,7 @@ if user_input:
 
     # Envia a requisição para a API
     response = rq.post(
-        "https://langflow.quickfix-dev-pbrito.shop/api/v1/run/bf149992-3e8c-4e95-b469-d3288bc0e4eb?stream=false",
+        "http://localhost/api/v1/run/bf149992-3e8c-4e95-b469-d3288bc0e4eb?stream=false",
         json={
             "input_value": formatted_input,
             "output_type": "chat",
@@ -91,9 +91,12 @@ if user_input:
             data = response.json()
             ai_response = data["outputs"][0]["outputs"][0]["results"]["message"]["text"]
         except (KeyError, IndexError, TypeError):
-            ai_response = "Erro ao processar resposta da IA."
+            ai_response = "Erro ao processar resposta da IA (estrutura inesperada)."
+        except rq.exceptions.JSONDecodeError:
+            ai_response = "Erro ao decodificar JSON da resposta da IA."
     else:
-        ai_response = "Erro ao conectar-se à API."
+        ai_response = f"Erro ao conectar-se à API. Status: {response.status_code} - Resposta: {response.text}"
+
 
     display_message("ai", ai_response, sender_name="Mrx IA", background_color="#D3E3FC", text_color="#003366", icon="🤖")
 

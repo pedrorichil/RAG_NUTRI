@@ -4,12 +4,10 @@ FROM python:3.10-slim
 # Diretório de trabalho
 WORKDIR /app
 
-# Instalação de dependências mínimas e nano
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    nano \
-    curl \
-    git \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    nano curl git \
+ && apt-get purge --auto-remove -y \
+ && rm -rf /var/lib/apt/lists/*
 
 
 # Clone do repositório com autenticação
