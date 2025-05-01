@@ -5,8 +5,8 @@ services:
     build:
       context: .
       args:
-        GIT_USER: pbrito
-        GIT_PASSWORD: Bianeves189.
+        GIT_USER: user
+        GIT_PASSWORD: senha
     container_name: faq-irpf
     restart: always
     ports:
